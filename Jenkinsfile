@@ -10,7 +10,15 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat 'exit 1'
+                bat '''
+                echo Running validation...
+                if not exist app.py (
+                    echo ERROR: app.py missing
+                    exit 1
+                )
+                echo Validation passed
+                exit 0
+                '''
             }
         }
     }
