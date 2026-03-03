@@ -1,15 +1,17 @@
 pipeline {
     agent any
-    
-    stages{('Build'){
-        steps{
-            bat 'python app.py'
+
+    stages {
+        stage('Build') {
+            steps {
+                bat 'python app.py'
+            }
         }
-    }
-    stage ('Test'){
-        steps {
-            bat 'exit 1'
+
+        stage('Test') {
+            steps {
+                bat 'exit 1'
+            }
         }
-    }
     }
 }
